@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { Activity, BarChart3, CheckCircle2, FileSearch, Home, MessageSquareText, Plus, Search, ShieldCheck, Users, Wifi, WifiOff } from "lucide-react";
 import { supabase, type Claim, type Need } from "@/lib/supabase";
@@ -75,7 +76,7 @@ export default function HomePage() {
           </div>
           <div className="flex items-center gap-2">
             <span className={`hidden items-center gap-1 rounded-full border px-3 py-1 text-xs sm:inline-flex ${live ? "border-emerald-500/30 text-emerald-300" : "border-zinc-700 text-zinc-500"}`}>{live ? <Wifi size={13}/> : <WifiOff size={13}/>} {live ? "داده زنده" : "حالت نمایشی"}</span>
-            <button className="rounded-xl border border-zinc-700 px-4 py-2 text-sm hover:border-orange-400">ورود / ثبت‌نام</button>
+            <Link href="/auth" className="rounded-xl border border-zinc-700 px-4 py-2 text-sm hover:border-orange-400">ورود / ثبت‌نام</Link>
           </div>
         </div>
       </header>
@@ -88,7 +89,7 @@ export default function HomePage() {
             <p className="mt-4 max-w-2xl text-zinc-400">MIZ نیازها، ادعاها و شواهد را از هم جدا می‌کند؛ سپس بر اساس داده و منبع، وضعیت و میزان اطمینان را نمایش می‌دهد.</p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <div className="flex flex-1 items-center gap-2 rounded-2xl border border-zinc-700 bg-black/30 px-4"><Search size={19} className="text-zinc-500"/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="جستجوی نیاز، دسته یا منطقه..." className="w-full bg-transparent py-4 outline-none placeholder:text-zinc-600"/></div>
-              <button className="inline-flex items-center justify-center gap-2 rounded-2xl bg-orange-500 px-6 py-4 font-bold text-black hover:bg-orange-400"><Plus size={18}/> ثبت نیاز</button>
+              <Link href="/account" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-orange-500 px-6 py-4 font-bold text-black hover:bg-orange-400"><Plus size={18}/> ثبت نیاز</Link>
             </div>
           </div>
         </div>
